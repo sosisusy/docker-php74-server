@@ -7,16 +7,31 @@ services:
     container_name: php
     build:
       context: .
+    restart: always
+    ports: 
+      - 9000:9000
     volumes: 
-      - ./app:/var/www/app
+      - ./laravel:/laravel
+    working_dir: /laravel
   
   web:
     container_name: web
     image: nginx:1.19
+    restart: always
     ports: 
       - 80:80
     volumes: 
-      - ./app:/app
+      - ./laravel:/laravel
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-  
+
+  db:
+    container_name: db
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - 3306:3306
+    volumes: 
+      - ./db/data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: 1234
