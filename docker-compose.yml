@@ -5,9 +5,18 @@ version: "3"
 services: 
   php:
     container_name: php
-    image: test
+    build:
+      context: .
     volumes: 
       - ./app:/var/www/app
-    working_dir: /var/www/app
-
+  
+  web:
+    container_name: web
+    image: nginx:1.19
+    ports: 
+      - 80:80
+    volumes: 
+      - ./app:/app
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
   
