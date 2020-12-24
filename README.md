@@ -8,7 +8,9 @@ node_modules 설치를 위한 npm 설치
 
 # Version
 PHP 7.4
+
 NGINX 1.19
+
 Maria DB 10.5
 
 # 사용법
