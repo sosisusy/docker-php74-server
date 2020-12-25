@@ -1,6 +1,3 @@
-# TODO
-node_modules 설치를 위한 npm 설치
-
 # 개요
 `Docker`를 사용하여 `Laravel`, `Maria DB`를 쉽게 사용할 수 있도록 기본 환경을 제공한다.
 
