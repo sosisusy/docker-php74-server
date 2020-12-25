@@ -29,11 +29,9 @@ docker-compose up -d
 
 # step 2
 docker-compose exec php composer install
-docker-compose exec php npm install
 
 # step 3
-cd laravel
-cp .env.example .env
+docker-compose exec php cp .env.example .env
 docker-compose exec php php artisan key:generate
 
 # step 4

@@ -32,6 +32,15 @@ services:
     ports:
       - 3306:3306
     volumes: 
+      - ./db/conf.d:/etc/mysql/conf.d
       - ./db/data:/var/lib/mysql
     environment: 
       MYSQL_ROOT_PASSWORD: 1234
+
+  node:
+    container_name: node
+    image: node:14.15
+    volumes: 
+      - ./laravel:/laravel
+    working_dir: /laravel
+    command: npm install
